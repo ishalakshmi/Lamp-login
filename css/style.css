@@ -1,0 +1,784 @@
+/* --------------------
+   GOOGLE FONT
+-------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    margin:0;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+    url("../images/background.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+}
+
+/* ==========================
+        Lamp
+========================== */
+
+.lamp-container{
+
+    position:absolute;
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+}
+
+.wire{
+
+    width:3px;
+    height:150px;
+
+    background:#d9d9d9;
+    margin:auto;
+}
+
+.lamp{
+
+    width:150px;
+    height:90px;
+
+    background:#262626;
+
+    clip-path:polygon(15% 0,85% 0,100% 100%,0 100%);
+
+    border-radius:8px;
+    position:relative;
+
+    box-shadow:
+    inset 0 -10px 20px rgba(255,255,255,.08);
+}
+
+.bulb{
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:#ffd95a;
+
+    position:absolute;
+
+    left:50%;
+    bottom:-9px;
+
+    transform:translateX(-50%);
+
+    box-shadow:
+    0 0 20px #ffd95a,
+    0 0 40px #ffd95a,
+    0 0 70px #ffd95a;
+}
+
+/* ==========================
+        Light Beam
+========================== */
+
+.light{
+
+    width:0;
+    height:0;
+
+    border-left:280px solid transparent;
+    border-right:280px solid transparent;
+
+    border-top:550px solid rgba(255,255,180,.18);
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    filter:blur(2px);
+}
+
+/* ==========================
+      Login Card
+========================== */
+
+.login-card{
+
+    position:absolute;
+
+    left:50%;
+    top:58%;
+
+    transform:translate(-50%,-50%);
+
+    width:360px;
+
+    padding:35px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 35px rgba(0,0,0,.35);
+
+    text-align:center;
+}
+
+.login-card h1{
+
+    color:white;
+
+    margin-bottom:25px;
+}
+
+.login-card input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.28);
+
+    color:white;
+}
+
+.login-card input::placeholder{
+
+    color:#ececec;
+}
+
+.login-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ffcc33;
+
+    color:#222;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.login-card button:hover{
+
+    background:#ffd84f;
+
+    transform:translateY(-2px);
+}
+/* Lamp Switch */
+
+#lamp-toggle{
+    display:none;
+}
+
+.switch{
+
+    position:absolute;
+
+    right:35px;
+    top:35px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    z-index:100;
+}
+
+/* Hidden Initially */
+
+.light{
+
+    opacity:0;
+
+    transition:.7s;
+}
+
+.login-card{
+
+    opacity:0;
+
+    transform:
+    translate(-50%,-40%);
+
+    transition:.8s;
+}
+
+/* Lamp ON */
+
+#lamp-toggle:checked ~ .lamp-container .light{
+
+    opacity:1;
+}
+
+#lamp-toggle:checked ~ .lamp-container .bulb{
+
+    box-shadow:
+    0 0 20px gold,
+    0 0 60px gold,
+    0 0 120px gold;
+}
+
+#lamp-toggle:checked ~ .login-card{
+
+    opacity:1;
+
+    transform:
+    translate(-50%,-50%);
+}
+
+/* Password */
+
+.password-box{
+
+    position:relative;
+}
+
+#showPassword{
+
+    position:absolute;
+
+    right:15px;
+    top:15px;
+
+    cursor:pointer;
+}
+/* -----------------------
+      Overlay
+-----------------------*/
+
+.overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.45),
+
+rgba(0,0,0,.65)
+
+);
+
+}
+
+/* -----------------------
+    Lamp Swing
+-----------------------*/
+
+.lamp-container{
+
+animation:
+
+swing 6s ease-in-out infinite;
+
+transform-origin:top center;
+
+}
+
+@keyframes swing{
+
+0%{
+
+transform:
+
+translateX(-50%)
+
+rotate(-3deg);
+
+}
+
+50%{
+
+transform:
+
+translateX(-50%)
+
+rotate(3deg);
+
+}
+
+100%{
+
+transform:
+
+translateX(-50%)
+
+rotate(-3deg);
+
+}
+
+}
+
+/* -----------------------
+      Bulb Flicker
+-----------------------*/
+
+@keyframes flicker{
+
+0%{
+
+opacity:1;
+
+}
+
+20%{
+
+opacity:.6;
+
+}
+
+40%{
+
+opacity:1;
+
+}
+
+60%{
+
+opacity:.75;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.95;
+
+}
+
+}
+
+#lamp-toggle:checked ~
+
+.lamp-container
+
+.bulb{
+
+animation:
+
+flicker
+
+1.3s infinite;
+
+}
+
+/* -----------------------
+ Floating Card
+-----------------------*/
+
+.login-card{
+
+animation:
+
+floating
+
+5s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:
+
+translate(-50%,-50%)
+
+translateY(0);
+
+}
+
+50%{
+
+transform:
+
+translate(-50%,-50%)
+
+translateY(-8px);
+
+}
+
+100%{
+
+transform:
+
+translate(-50%,-50%)
+
+translateY(0);
+
+}
+
+}
+
+/* -----------------------
+Button
+-----------------------*/
+button{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffd54f,
+
+#ffb300
+
+);
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:
+
+translateY(-3px)
+
+scale(1.02);
+
+box-shadow:
+
+0 18px 35px
+
+rgba(255,193,7,.45);
+
+}
+/* -----------------------
+Input
+-----------------------*/
+input{
+
+padding:15px;
+
+border-radius:14px;
+
+border:none;
+
+outline:none;
+
+background:rgba(255,255,255,.18);
+
+color:white;
+
+transition:.35s;
+
+font-size:15px;
+
+}
+
+input:focus{
+
+background:rgba(255,255,255,.28);
+
+transform:scale(1.02);
+
+}
+/* ===============================
+   PREMIUM GLASS EFFECT
+================================ */
+
+.login-card{
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.45),
+
+    inset 0 1px rgba(255,255,255,.2);
+
+}
+
+/* ===============================
+      Light Glow
+================================ */
+
+.light{
+
+    filter:
+
+    blur(5px)
+
+    drop-shadow(0 0 40px rgba(255,240,120,.5));
+
+}
+
+/* ===============================
+     Card Shine Animation
+================================ */
+
+.login-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+
+left:-60%;
+
+width:80%;
+
+height:300%;
+
+background:
+
+linear-gradient(
+
+transparent,
+
+rgba(255,255,255,.25),
+
+transparent
+
+);
+
+transform:rotate(25deg);
+
+animation:shine 8s linear infinite;
+
+}
+
+@keyframes shine{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+}
+.popup{
+
+position:fixed;
+
+top:30px;
+right:30px;
+
+background:#2ecc71;
+
+color:white;
+
+padding:18px 30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+opacity:0;
+
+transform:translateY(-20px);
+
+transition:.4s;
+
+z-index:9999;
+
+}
+
+.popup.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.popup h3{
+
+margin-bottom:5px;
+
+font-size:18px;
+
+}
+
+.popup p{
+
+margin:0;
+
+font-size:14px;
+
+}
+/* ==================================
+      PREMIUM LOGIN CARD
+==================================*/
+
+.subtitle{
+
+    color:#efefef;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+    letter-spacing:.5px;
+
+}
+
+.login-card{
+
+    animation:
+
+    floatCard 4s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:
+
+translate(-50%,-50%);
+
+}
+
+50%{
+
+transform:
+
+translate(-50%,-53%);
+
+}
+
+100%{
+
+transform:
+
+translate(-50%,-50%);
+
+}
+
+}
+
+/* ==================================
+      BULB GLOW
+==================================*/
+
+.bulb{
+
+transition:.5s;
+
+}
+
+#lamp-toggle:checked~
+
+.lamp-container
+
+.bulb{
+
+background:#fff6a2;
+
+box-shadow:
+
+0 0 25px #fff6a2,
+
+0 0 60px gold,
+
+0 0 120px gold,
+
+0 0 220px gold;
+
+}
+
+/* ==================================
+       LIGHT
+==================================*/
+
+.light{
+
+transition:
+
+opacity .8s,
+
+filter .8s;
+
+}
+
+/* ==================================
+      BUTTON
+==================================*/
+
+button{
+
+letter-spacing:1px;
+
+}
+
+button:active{
+
+transform:scale(.97);
+
+}
+
+/* ==================================
+      SCROLLBAR
+==================================*/
+
+::-webkit-scrollbar{
+
+display:none;
+
+}

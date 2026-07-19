@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Lamp Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<input type="checkbox" id="lamp-toggle">
+
+<label for="lamp-toggle" class="switch">
+    <span>💡</span>
+</label>
+
+<div class="overlay"></div>
+
+<div class="lamp-container">
+
+    <div class="wire"></div>
+
+    <div class="lamp">
+        <div class="lamp-top"></div>
+        <div class="bulb"></div>
+    </div>
+
+    <div class="light"></div>
+
+</div>
+<div class="login-card">
+
+    <h1>Welcome Back</h1>
+
+    <p class="subtitle">
+        Turn on the lamp to reveal the login form
+    </p>
+
+    <form id="loginForm">
+
+        <input
+        id="username"
+        type="text"
+        placeholder="Username">
+
+        <div class="password-box">
+
+            <input
+            id="password"
+            type="password"
+            placeholder="Password">
+
+            <span id="showPassword">
+                👁
+            </span>
+
+        </div>
+        <button type="submit">
+            Sign In
+        </button>
+        
+    </form>
+
+</div>
+</form>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
